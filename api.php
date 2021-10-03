@@ -36,33 +36,37 @@ $resp = processRequest($method, $data);
 
 function processRequest($requestMethod, $parameters)
     {
-		$response = array();
+	$response = array();
+	
         switch ($requestMethod) {
             case 'GET':
-			    switch ($parameters['call']) {
-				 case 'cars':
-                 $response = getCars($parameters);
+	        switch ($parameters['call']) {
+		 case 'cars':
+                  $response = getCars($parameters);
                   break;				  
-				 default:
-                 $response = notFoundResponse();
-                 break;
-				}
-				break;
-			 case 'POST':
-			    switch ($parameters['call']) {
-				 case 'changecars':
-                 $response = changeCars($parameters);
-                  break;				  
-				 default:
-                 $response = notFoundResponse();
-                 break;
-				}
+		 default:
+                  $response = notFoundResponse();
+                  break;
+		}
+		break;
+			
+	     case 'POST':
+		switch ($parameters['call']) {
+		  case 'changecars':
+                   $response = changeCars($parameters);
+                   break;				  
+		  default:
+                   $response = notFoundResponse();
+                   break;
+		 }
                 break;
-        }
+         }
+	
         header($response['status_code_header']);
+	
         if($response['body']) {
          echo $response['body'];
-		}
+	}
 
 }
 
