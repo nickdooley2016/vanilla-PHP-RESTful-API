@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^([a-zA-Z0-9\-_]+)/([a-zA-Z0-9\-_]+)/?$   \
+                api.php?call=$2 [QSA,P]
