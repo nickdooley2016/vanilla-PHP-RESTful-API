@@ -1,4 +1,4 @@
-# vanillaPHPRESTfulAPI
+# vanilla PHP RESTful API
 Basic vanilla PHP RESTful API example
 
 Remember to give your database.txt file read/write permissions
